@@ -1,0 +1,48 @@
+header {
+    .logo {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .menu__list {
+        float: right;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        .menu__item {
+            font-size: 15px;
+            font-weight: 600;
+            display: inline;
+            cursor: pointer;
+            transition: all .5s ease-in-out;
+            &:hover {
+                opacity: .5;
+            }
+        }
+    }
+
+    .presentation {
+        position: relative;
+        margin: 50px 0;
+        height: 600px;
+        width: 100%;
+        background-image: url(../../images/presentation.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-blend-mode: multiply;
+        background-color: #8badb6;
+        border-radius: 50px;
+        &::after {
+            position: absolute;
+            content: "Make the right choice!";
+            top: 20%;
+            left: 5%;
+            font-size: 50px;
+            max-width: 300px;
+            font-weight: 700;
+        }
+    }
+}
