@@ -10,7 +10,12 @@ export default function Item(props) {
             <h2 className={styles.title}>{props.item.title}</h2>
             {/* <p className={styles.description}>{props.item.desc}</p> */}
             <b className={styles.price}>{props.item.price}$</b>
-            <button className={styles.btn__add}>+</button>
+            <button
+                className={styles.btn__add}
+                onClick={() => props.onAdd(props.item)}
+            >
+                Add
+            </button>
         </div>
     );
 }

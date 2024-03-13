@@ -1,7 +1,38 @@
 header {
+    position: relative;
+
     .logo {
         font-weight: 700;
         font-size: 26px;
+    }
+
+    .basket, .account {
+        width: 40px;
+    }
+
+    .basket {
+        &:hover,
+        &.active {
+            transform: scale(1.1) !important;
+        }
+    }
+
+    .shopCart {
+        position: absolute;
+        top: 10%;
+        right: 0;
+        width: 450px;
+        min-height: 200px;
+        z-index: 2;
+        box-shadow: 9px -10px 8px 0px rgba(0, 0, 0, 0.4);
+        background-image: url(../../images/presentation.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-blend-mode: multiply;
+        background-color: #8badb6;
+        border: 2px solid grey;
+        filter: brightness(0.3);
     }
 
     .menu__list {
@@ -12,9 +43,9 @@ header {
         align-items: center;
         gap: 30px;
         .menu__item {
+            display: inline;
             font-size: 15px;
             font-weight: 600;
-            display: inline;
             cursor: pointer;
             transition: all .5s ease-in-out;
             &:hover {
