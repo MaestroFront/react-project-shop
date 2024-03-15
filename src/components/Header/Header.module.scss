@@ -6,7 +6,8 @@ header {
         font-size: 26px;
     }
 
-    .basket, .account {
+    .basket,
+    .account {
         width: 40px;
     }
 
@@ -22,17 +23,27 @@ header {
         top: 10%;
         right: 0;
         width: 450px;
-        min-height: 200px;
         z-index: 2;
         box-shadow: 9px -10px 8px 0px rgba(0, 0, 0, 0.4);
-        background-image: url(../../images/presentation.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        background-blend-mode: multiply;
-        background-color: #8badb6;
-        border: 2px solid grey;
-        filter: brightness(0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: white;
+        padding: 20px;
+        max-height: 300px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        .empty {
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        .total {
+            font-size: 18px;
+        }
     }
 
     .menu__list {
@@ -47,9 +58,9 @@ header {
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all .5s ease-in-out;
+            transition: all 0.5s ease-in-out;
             &:hover {
-                opacity: .5;
+                opacity: 0.5;
             }
         }
     }

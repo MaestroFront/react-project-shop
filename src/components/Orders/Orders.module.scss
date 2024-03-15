@@ -1,0 +1,44 @@
+.item {
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .deleteContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 80px;
+        float: left;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+    
+    .price {
+        color: red;
+        font-size: 20px;
+    }
+
+    .deleteIcon {
+        width: 30px;
+        cursor: pointer;
+        &:hover {
+            transform: scale(.95);
+        }
+    }
+}

@@ -2,9 +2,37 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import basket from "../../images/basket.svg";
 import account from "../../images/acc-logo.svg";
+import Orders from "../Orders";
 
-export default function Header() {
+export default function Header(props) {
     let [cartOpen, setCartOpen] = useState(false);
+
+    const showOrders = (props) => {
+        let total = 0;
+
+        props.orders.forEach(
+            (elem) => (total += Number.parseFloat(elem.price))
+        );
+
+        return (
+            <div>
+                {props.orders.map((el) => (
+                    <Orders onDelete={props.onDelete} key={el.id} item={el} />
+                ))}
+                <p className={styles.total}>
+                    Итого: {new Intl.NumberFormat().format(total)}$
+                </p>
+            </div>
+        );
+    };
+
+    const showNothing = () => {
+        return (
+            <div className={styles.empty}>
+                <h2>Корзина пустая</h2>
+            </div>
+        );
+    };
 
     return (
         <header className="header">
@@ -26,7 +54,7 @@ export default function Header() {
                                 src={basket}
                                 alt="basket"
                                 onClick={() =>
-                                    setCartOpen((cartOpen = !cartOpen)) 
+                                    setCartOpen((cartOpen = !cartOpen))
                                 }
                                 className={`${styles.basket} ${
                                     cartOpen ? styles.active : ""
@@ -39,7 +67,9 @@ export default function Header() {
             </div>
             {cartOpen && (
                 <div className={styles.shopCart}>
-                    
+                    {props.orders.length > 0
+                        ? showOrders(props)
+                        : showNothing()}
                 </div>
             )}
             <div className={styles.presentation}></div>
