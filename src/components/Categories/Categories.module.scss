@@ -1,0 +1,29 @@
+.categories {
+
+    width: 100%;
+    padding: 10px 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: start;
+
+    .btnSort {
+        position: relative;
+        background-color: transparent;
+        padding: 2px 15px;
+        border: none;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+        font-size: 20px;
+
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        &:hover {
+            text-decoration: overline;
+            transform: scale(1.1);
+            font-weight: 600;
+        } 
+    }
+
+}

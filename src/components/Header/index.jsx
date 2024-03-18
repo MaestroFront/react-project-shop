@@ -11,7 +11,7 @@ export default function Header(props) {
         let total = 0;
 
         props.orders.forEach(
-            (elem) => (total += Number.parseFloat(elem.price))
+            (elem) => (total += +elem.price)
         );
 
         return (
@@ -20,7 +20,7 @@ export default function Header(props) {
                     <Orders onDelete={props.onDelete} key={el.id} item={el} />
                 ))}
                 <p className={styles.total}>
-                    Итого: {new Intl.NumberFormat().format(total)}$
+                    Итого: {total}$
                 </p>
             </div>
         );

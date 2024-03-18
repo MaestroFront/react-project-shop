@@ -7,7 +7,12 @@ export default function Items(props) {
         <main className={styles.main}>
             <div className={styles.items}>
                 {props.allItems.map((el) => (
-                    <Item key={el.id} item={el} onAdd={props.onAdd}></Item>
+                    <Item
+                        key={el.id}
+                        item={el}
+                        onShowItem={props.onShowItem}
+                        onAdd={props.onAdd}
+                    ></Item>
                 ))}
             </div>
         </main>

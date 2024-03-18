@@ -1,0 +1,28 @@
+.fullItem {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background-color: black;
+    overflow: auto;
+
+    .container {
+        max-width: 600px;
+        position: relative;
+        margin: 10% auto;
+        padding: 40px 30px;
+        background-color: #8badb6;
+        border-radius: 20px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+
+
+
+}
