@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Categories.module.scss";
+import { useAppContext } from "../../useAppContext";
 
-export default function Categories(props) {
+export default function Categories() {
+    const { chooseCategory } = useAppContext();
+
     const categories = [
         {
             key: "all",
@@ -27,7 +30,7 @@ export default function Categories(props) {
                 <button
                     className={styles.btnSort}
                     key={item.key}
-                    onClick={() => props.chooseCategory(item.key)}
+                    onClick={() => chooseCategory(item.key)}
                 >
                     {item.name}
                 </button>
