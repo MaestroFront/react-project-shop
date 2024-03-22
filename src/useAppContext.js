@@ -214,6 +214,7 @@ export const AppProvider = ({ children }) => {
         orders,
         setOrders,
         currentItems,
+        setCurrentItems,
         showFullItem,
         setShowFullItem,
         fullItem,

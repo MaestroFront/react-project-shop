@@ -1,5 +1,5 @@
 import styles from "./Categories.module.scss";
-import { useAppContext } from "../../useAppContext";
+import { useAppContext } from "./../../useAppContext";
 
 export default function Categories() {
     const { chooseCategory } = useAppContext();
