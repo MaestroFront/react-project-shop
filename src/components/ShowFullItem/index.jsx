@@ -1,45 +1,49 @@
 import React from "react";
 import styles from "./ShowFullItem.module.scss";
+import { useAppContext } from "../../useAppContext";
 
-export default function ShowFullItem(props) {
+export default function ShowFullItem() {
+
+    const {fullItem, onShowItem, addToOrder} = useAppContext();
+
     return (
         <div className={styles.fullItem}>
             <div className={styles.container}>
                 <div className={styles.img__container}>
                     <img
                         className={styles.img}
-                        src={props.item.img}
+                        src={fullItem.img}
                         alt="shoes"
                     />
                     <div className={styles.other__imgs}>
                         <img
                             className={styles.other__img}
-                            src={props.item.img2}
+                            src={fullItem.img2}
                             alt="shoes"
                         ></img>
                         <img
                             className={styles.other__img}
-                            src={props.item.img3}
+                            src={fullItem.img3}
                             alt="shoes"
                         ></img>
                         <img
                             className={styles.other__img}
-                            src={props.item.img4}
+                            src={fullItem.img4}
                             alt="shoes"
                         ></img>
                     </div>
                 </div>
-                <h2 className={styles.title}>{props.item.title}</h2>
-                <p className={styles.description}>{props.item.desc}</p>
-                <b className={styles.price}>{props.item.price}$</b>
+                <h2 className={styles.title}>{fullItem.title}</h2>
+                <p className={styles.description}>{fullItem.desc}</p>
+                <b className={styles.price}>{fullItem.price}$</b>
                 <button
                     className={styles.btn__add}
-                    onClick={() => props.onAdd(props.item)}
+                    onClick={() => addToOrder(fullItem)}
                 >
                     +
                 </button>
                 <button
-                    onClick={() => props.onShowItem(props.item)}
+                    onClick={() => onShowItem(fullItem)}
                     className={styles.btn__back}
                 >
                     back

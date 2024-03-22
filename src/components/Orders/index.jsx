@@ -1,27 +1,25 @@
 import React from "react";
 import styles from "./Orders.module.scss";
 import deleteIcon from "../../images/delete.svg";
+import { useAppContext } from "../../useAppContext";
 
-export default function Orders(props) {
+export default function Orders({ item }) {
+    const { deleteOrder } = useAppContext();
+
     return (
         <div className={styles.item}>
             <div className={styles.container}>
                 <div className={styles.img__container}>
-                    <img
-                        className={styles.img}
-                        src={props.item.img}
-                        alt="shoes"
-                    />
+                    <img className={styles.img} src={item.img} alt="shoes" />
                 </div>
                 <div className={styles.content}>
-                    <h2 className={styles.title}>{props.item.title}</h2>
-                    {/* <p className={styles.description}>{props.item.desc}</p> */}
-                    <b className={styles.price}>{props.item.price}$</b>
+                    <h2 className={styles.title}>{item.title}</h2>
+                    <b className={styles.price}>{item.price}$</b>
                 </div>
             </div>
             <div className={styles.deleteContainer}>
                 <img
-                    onClick={() => props.onDelete(props.item.id)}
+                    onClick={() => deleteOrder(item.id)}
                     className={styles.deleteIcon}
                     src={deleteIcon}
                     alt="delete"

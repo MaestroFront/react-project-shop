@@ -3,21 +3,25 @@ import styles from "./Header.module.scss";
 import basket from "../../images/basket.svg";
 import account from "../../images/acc-logo.svg";
 import Orders from "../Orders";
+import { useAppContext } from "../../useAppContext";
 
-export default function Header(props) {
+export default function Header() {
+
+    const { orders, onDelete } = useAppContext();
+
     let [cartOpen, setCartOpen] = useState(false);
 
-    const showOrders = (props) => {
+    const showOrders = () => {
         let total = 0;
 
-        props.orders.forEach(
+        orders.forEach(
             (elem) => (total += +elem.price)
         );
 
         return (
             <div>
-                {props.orders.map((el) => (
-                    <Orders onDelete={props.onDelete} key={el.id} item={el} />
+                {orders.map((el) => (
+                    <Orders onDelete={onDelete} key={el.id} item={el} />
                 ))}
                 <p className={styles.total}>
                     Итого: {total}$
@@ -67,8 +71,8 @@ export default function Header(props) {
             </div>
             {cartOpen && (
                 <div className={styles.shopCart}>
-                    {props.orders.length > 0
-                        ? showOrders(props)
+                    {orders.length > 0
+                        ? showOrders()
                         : showNothing()}
                 </div>
             )}

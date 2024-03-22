@@ -1,23 +1,26 @@
 import React from "react";
 import styles from "./Item.module.scss";
+import { useAppContext } from "../../useAppContext";
 
-export default function Item(props) {
+export default function Item({ item }) {
+    const { onShowItem, addToOrder } = useAppContext();
+
     return (
         <div className={styles.item}>
             <div className={styles.img__container}>
                 <img
                     className={styles.img}
-                    src={props.item.img}
+                    src={item.img}
                     alt="shoes"
-                    onClick={() => props.onShowItem(props.item)}
+                    onClick={() => onShowItem(item)}
                 />
             </div>
-            <h2 className={styles.title}>{props.item.title}</h2>
-            {/* <p className={styles.description}>{props.item.desc}</p> */}
-            <b className={styles.price}>{props.item.price}$</b>
+            <h2 className={styles.title}>{item.title}</h2>
+            {/* <p className={styles.description}>{item.desc}</p> */}
+            <b className={styles.price}>{item.price}$</b>
             <button
                 className={styles.btn__add}
-                onClick={() => props.onAdd(props.item)}
+                onClick={() => addToOrder(item)}
             >
                 +
             </button>

@@ -2,5 +2,5 @@ import React from "react";
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
-    return <footer className="footer">Футер &copy;</footer>;
+    return <footer className={styles.footer}>Футер &copy;</footer>;
 }
