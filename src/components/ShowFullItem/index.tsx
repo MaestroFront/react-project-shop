@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./ShowFullItem.module.scss";
-import { useAppContext } from "../../useAppContext";
+import { useAppContext } from "./../../useAppContext.tsx";
 
-export default function ShowFullItem() {
-
-    const {fullItem, onShowItem, addToOrder} = useAppContext();
+const ShowFullItem: React.FC = () => {
+    const { fullItem, onShowItem, addToOrder } = useAppContext();
 
     return (
         <div className={styles.fullItem}>
@@ -51,4 +50,6 @@ export default function ShowFullItem() {
             </div>
         </div>
     );
-}
+};
+
+export default ShowFullItem;

@@ -2,30 +2,25 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import basket from "../../images/basket.svg";
 import account from "../../images/acc-logo.svg";
-import Orders from "../Orders";
-import { useAppContext } from "../../useAppContext";
+import Orders from "../Orders/index.tsx";
+import { useAppContext } from "./../../useAppContext.tsx";
 
-export default function Header() {
+const Header: React.FC = () => {
+    const { orders } = useAppContext();
 
-    const { orders, onDelete } = useAppContext();
-
-    let [cartOpen, setCartOpen] = useState(false);
+    let [cartOpen, setCartOpen] = useState<Boolean>(false);
 
     const showOrders = () => {
         let total = 0;
 
-        orders.forEach(
-            (elem) => (total += +elem.price)
-        );
+        orders.forEach((elem: any) => (total += +elem.price));
 
         return (
             <div>
-                {orders.map((el) => (
-                    <Orders onDelete={onDelete} key={el.id} item={el} />
+                {orders.map((el: any) => (
+                    <Orders key={el.id} item={el} />
                 ))}
-                <p className={styles.total}>
-                    Итого: {total}$
-                </p>
+                <p className={styles.total}>Итого: {total}$</p>
             </div>
         );
     };
@@ -58,7 +53,9 @@ export default function Header() {
                                 src={basket}
                                 alt="basket"
                                 onClick={() =>
-                                    setCartOpen((cartOpen = !cartOpen))
+                                    setCartOpen(
+                                        (prevCartOpen: any) => !prevCartOpen
+                                    )
                                 }
                                 className={`${styles.basket} ${
                                     cartOpen ? styles.active : ""
@@ -71,12 +68,12 @@ export default function Header() {
             </div>
             {cartOpen && (
                 <div className={styles.shopCart}>
-                    {orders.length > 0
-                        ? showOrders()
-                        : showNothing()}
+                    {orders.length > 0 ? showOrders() : showNothing()}
                 </div>
             )}
             <div className={styles.presentation}></div>
         </header>
     );
-}
+};
+
+export default Header;

@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./Item.module.scss";
-import { useAppContext } from "../../useAppContext";
+import { useAppContext } from "./../../useAppContext.tsx";
 
-export default function Item({ item }) {
+interface Props {
+    item: any;
+}
+
+const Item: React.FC<Props> = ({ item }) => {
     const { onShowItem, addToOrder } = useAppContext();
 
     return (
@@ -16,7 +20,6 @@ export default function Item({ item }) {
                 />
             </div>
             <h2 className={styles.title}>{item.title}</h2>
-            {/* <p className={styles.description}>{item.desc}</p> */}
             <b className={styles.price}>{item.price}$</b>
             <button
                 className={styles.btn__add}
@@ -26,4 +29,6 @@ export default function Item({ item }) {
             </button>
         </div>
     );
-}
+};
+
+export default Item;

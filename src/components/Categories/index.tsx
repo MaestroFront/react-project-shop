@@ -1,10 +1,16 @@
+import React from "react";
 import styles from "./Categories.module.scss";
-import { useAppContext } from "./../../useAppContext";
+import { useAppContext } from "./../../useAppContext.tsx";
 
-export default function Categories() {
+interface Category {
+    key: String;
+    name: String;
+}
+
+const Categories: React.FC = () => {
     const { chooseCategory } = useAppContext();
 
-    const categories = [
+    const categories: Category[] = [
         {
             key: "all",
             name: "All",
@@ -28,7 +34,7 @@ export default function Categories() {
             {categories.map((item) => (
                 <button
                     className={styles.btnSort}
-                    key={item.key}
+                    key={item.key as React.Key | null | undefined}
                     onClick={() => chooseCategory(item.key)}
                 >
                     {item.name}
@@ -36,4 +42,6 @@ export default function Categories() {
             ))}
         </div>
     );
-}
+};
+
+export default Categories;

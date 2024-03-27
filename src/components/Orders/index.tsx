@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./Orders.module.scss";
 import deleteIcon from "../../images/delete.svg";
-import { useAppContext } from "../../useAppContext";
+import { useAppContext } from "./../../useAppContext.tsx";
 
-export default function Orders({ item }) {
+interface Props {
+    item: any;
+}
+
+const Orders: React.FC<Props> = ({ item }) => {
     const { deleteOrder } = useAppContext();
 
     return (
@@ -27,4 +31,6 @@ export default function Orders({ item }) {
             </div>
         </div>
     );
-}
+};
+
+export default Orders;
